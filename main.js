@@ -22,3 +22,22 @@ function fetchProducts() {
             console.error('Fetch error:', error);
         });
 }
+// Task 3: Function to display products on the webpage
+function displayProducts(products) {
+
+    const productContainer = document.getElementById('product-container');
+    productContainer.innerHTML = '';
+    
+    // Looping each product in array
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product';
+        productElement.innerHTML = `
+            <h2>${product.name}</h2>
+            <img src="${product.image}" alt="${product.name}">
+            <p>Company: ${product.company}</p>
+            <p>Price: $${product.price}</p>
+        `;
+        productContainer.appendChild(productElement);
+    });
+}
