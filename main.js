@@ -22,12 +22,13 @@ function fetchProducts() {
             console.error('Fetch error:', error);
         });
 }
-// Task 3: Function to display products on the webpage
+
+// Task 3: Display Product Details Dynamically
 function displayProducts(products) {
 
     const productContainer = document.getElementById('product-container');
     productContainer.innerHTML = '';
-    
+
     // Looping each product in array
     products.forEach(product => {
         const productElement = document.createElement('div');
@@ -41,3 +42,13 @@ function displayProducts(products) {
         productContainer.appendChild(productElement);
     });
 }
+
+// Task 4: Function to handle errors gracefully
+function showError(message) {
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+}
+
+// Call fetchProducts
+fetchProducts();
